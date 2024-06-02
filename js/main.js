@@ -4,9 +4,16 @@ import { insertCard } from "./funciones.js";
 let movies;
 
 async function loadData() {
-    const response =await fetch('../data/data.json');
-    movies = await response.json();
-    showOnScreen(movies);
+    try {
+        const response = await fetch('./data/data.json'); // Ajuste de la ruta
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        movies = await response.json();
+        showOnScreen(movies);
+    } catch (error) {
+        console.error('Error loading data:', error);
+    }
 }
 
 loadData();
@@ -14,10 +21,3 @@ loadData();
 function showOnScreen(movies) {
     movies.forEach(insertCard);
 }
-
-
-// Ejecutamos las funciones de carga de películas al cargar la página
-document.addEventListener('DOMContentLoaded', () => {
-    // Cargamos las películas en el carrusel de películas aclamadas
-    fetchMoviesFlex();
-});
