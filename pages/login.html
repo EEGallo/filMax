@@ -15,7 +15,6 @@
 </head>
 <body>
     <header class="nav-container">
-
         <!--NAV BAR-->
         <nav class="navbar navbar-expand-lg navbar-dark">
             <div class="container-fluid">
@@ -28,7 +27,7 @@
                 <div class="collapse navbar-collapse justify-content-end order-lg-1" id="navbarTogglerDemo02">
                     <ul class="navbar-nav mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/index.html#trending">Tendencias</a>
+                            <a class="nav-link active" aria-current="page" href="../index.html#trending">Tendencias</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link active" href="register.html">Registrarse</a>
@@ -42,22 +41,22 @@
         </nav>
     </header>
 
-
     <!--Login Form-->
     <div class="form-box">
-
-        <form>
+        <form id="login-form" action="/login-endpoint" method="POST">
             <h1>Inicia Sesión!</h1>
             <div class="form-content">
                 <img src="../img/user.svg" alt="user" class="img-login">
-                <input type="text" id="nombre" name="nombre" required placeholder=" Nombre">
+                <input type="text" id="username" name="username" required placeholder=" Nombre">
                 <input type="password" id="contraseña" name="contraseña" required placeholder=" Contraseña">
                 <div class="btn-box">
-                    <button class="btn-form">Iniciar</button>
+                    <button type="submit" class="btn-form">Iniciar</button>
                     <a href="register.html">¿Has olvidado tu contraseña?</a>
                 </div>
                 <a  href="register.html">Registrate</a>
             </div>
         </form>
+        <p id="error-message" class="error-message"></p>
     </div>
+    <script type="module" src="../js/login.js"></script>    
 </body>
